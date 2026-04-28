@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearby Places</title>
+</head>
+
+<body>
+
+<button onclick="getLocation()">Get Location</button>
+<p id="loc"></p>
+<script>
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(pos => {
+        let lat = pos.coords.latitude;
+        let lon = pos.coords.longitude;
+
+        document.getElementById("loc").innerHTML =
+            "Lat: " + lat + " | Lon: " + lon;
+    });
+}
+</script>
+
+</body>
+</html>

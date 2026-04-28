@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { text-align:center; font-family:Arial; margin-top:50px; }
+        input, button { padding:10px; margin:10px; }
+    </style>
+</head>
+<body>
+
+<h2>User Login</h2>
+
+<input id="u" placeholder="Username"><br>
+<input id="p" type="password" placeholder="Password"><br>
+
+<button onclick="check()">Login</button>
+<button onclick="clearData()">Reset</button>
+
+<p id="msg"></p>
+
+<script>
+function check(){
+    let u = document.getElementById("u").value;
+    let p = document.getElementById("p").value;
+
+    if(u=="admin" && p=="123")
+        document.getElementById("msg").innerHTML = "Login Successful";
+    else
+        document.getElementById("msg").innerHTML = "Invalid Login";
+}
+
+function clearData(){
+    document.getElementById("u").value = "";
+    document.getElementById("p").value = "";
+    document.getElementById("msg").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
