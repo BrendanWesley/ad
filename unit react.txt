@@ -1,0 +1,23 @@
+import { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+
+export default function App() {
+
+  const [value, setValue] = useState('');
+  const [result, setResult] = useState('');
+
+  return (
+    <View>
+      <Text>Unit Converter</Text>
+
+      <TextInput placeholder="Enter value" onChangeText={setValue} />
+
+      <Button title="KM → Miles" onPress={() => setResult((value * 0.62).toFixed(2) + ' miles')} />
+      <Button title="Miles → KM" onPress={() => setResult((value * 1.61).toFixed(2) + ' km')} />
+      <Button title="KG → Pounds" onPress={() => setResult((value * 2.2).toFixed(2) + ' lb')} />
+      <Button title="Pounds → KG" onPress={() => setResult((value / 2.2).toFixed(2) + ' kg')} />
+
+      <Text>{result}</Text>
+    </View>
+  );
+}
