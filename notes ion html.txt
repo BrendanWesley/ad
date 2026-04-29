@@ -20,3 +20,12 @@
   </ion-item>
 
 </ion-content>
+
+node -v
+npm -v
+npm install
+npm install -g @ionic/cli
+ionic start App blank
+cd App
+code .
+ionic serve
