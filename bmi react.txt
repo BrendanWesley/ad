@@ -1,0 +1,27 @@
+import { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+
+export default function App() {
+
+  const [h, setH] = useState('');
+  const [w, setW] = useState('');
+  const [r, setR] = useState('');
+
+  function calc() {
+    let bmi = w / ((h/100)*(h/100));
+    setR("BMI: " + bmi.toFixed(2));
+  }
+
+  return (
+    <View>
+      <Text>BMI Calculator</Text>
+
+      <TextInput placeholder="Height" onChangeText={setH} />
+      <TextInput placeholder="Weight" onChangeText={setW} />
+
+      <Button title="Calculate" onPress={calc} />
+
+      <Text>{r}</Text>
+    </View>
+  );
+}
