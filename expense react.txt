@@ -1,0 +1,42 @@
+import { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+
+export default function App() {
+
+  const [amount, setAmount] = useState('');
+  const [category, setCategory] = useState('');
+  const [result, setResult] = useState({});
+
+  const add = (type) => {
+
+    if (!amount || !category) return;
+
+    let data = { ...result };
+
+    if (!data[category]) {
+      data[category] = { income: 0, expense: 0 };
+    }
+
+    data[category][type] += Number(amount);
+
+    setResult(data);
+  };
+
+  return (
+    <View>
+      <Text>Expense Manager</Text>
+
+      <TextInput placeholder="Amount" onChangeText={setAmount} />
+      <TextInput placeholder="Category" onChangeText={setCategory} />
+
+      <Button title="Add Income" onPress={() => add('income')} />
+      <Button title="Add Expense" onPress={() => add('expense')} />
+
+      {Object.keys(result).map((key) => (
+        <Text key={key}>
+          {key} → Income: {result[key].income} Expense: {result[key].expense}
+        </Text>
+      ))}
+    </View>
+  );
+}
