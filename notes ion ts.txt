@@ -1,0 +1,22 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html'
+})
+export class HomePage {
+
+  title = '';
+  desc = '';
+  list: any[] = [];
+
+  add() {
+    this.list.push({
+      title: this.title,
+      desc: this.desc
+    });
+
+    this.title = '';
+    this.desc = '';
+  }
+}
