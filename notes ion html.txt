@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notes App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Input -->
+  <ion-input [(ngModel)]="title" placeholder="Title"></ion-input>
+
+  <ion-textarea [(ngModel)]="desc" placeholder="Description"></ion-textarea>
+
+  <!-- Button -->
+  <ion-button (click)="add()">Add</ion-button>
+
+  <!-- Display -->
+  <ion-item *ngFor="let i of list">
+    {{i.title}} - {{i.desc}}
+  </ion-item>
+
+</ion-content>
